@@ -22,7 +22,7 @@ public class stepdefinition {
     CommonFunction conf = new CommonFunction();
     Response response;
     Properties properties;
-
+    int id = 0;
     public stepdefinition() throws IOException {
 
         BufferedReader reader = new BufferedReader(new FileReader(System.getProperty("user.dir")+"\\src\\test\\Config\\ConfigFile"));
@@ -53,7 +53,7 @@ public class stepdefinition {
         String jsonString = response.asString();
         List<Map<String, String>> responsemap = JsonPath.from(jsonString).get("");
 
-        int id = 0;
+
         for (Map<String, String> stringStringMap : responsemap) {
             String temp = stringStringMap.get("username");
             if (temp.contains(username)) {
